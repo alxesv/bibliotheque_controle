@@ -4,8 +4,17 @@ require_once 'init.php';
 $sql = "SELECT livre.titre as 'Titre', livre.synopsis as 'Synopsis', auteur.nom as 'Auteur', categorie.libelle as 'Catégorie', livre.id as 'id' FROM livre
 INNER JOIN auteur ON livre.auteur_id = auteur.id
 INNER JOIN livre_cat ON livre_cat.id_livre = livre.id
-INNER JOIN categorie ON categorie.id = livre_cat.id_categorie
-ORDER BY livre.titre";
+INNER JOIN categorie ON categorie.id = livre_cat.id_categorie";
+
+// modification de la requete pour la recherche
+if (isset($_GET['search'])){
+$searchContent = $_GET['search'];
+$research = " WHERE livre.titre LIKE '%$searchContent%'";
+$sql .= $research;
+}
+
+$sql .= " ORDER BY livre.titre";
+
 $biblStatement = $db->prepare($sql);
 $biblStatement->execute();
 $biblio = $biblStatement->fetchAll();
@@ -31,13 +40,15 @@ $biblio = $biblStatement->fetchAll();
                 <th>Synopsis</th>
                 <th>Auteur</th>
                 <th>Catégorie</th>
+                <th><form action="livres.php" method="GET"><input type="text" placeholder="Chercher par titre..." name="search"><input type="submit" value="Go"></form></th>
+                <th><a href="livres.php">Clear</a></th>
             </thead>
             <tbody>
                 <?php
                 foreach ($biblio as $bkey => $bvalue){ ?>
                 <tr>
                     <td><?=$bvalue['Titre']?></td>
-                    <td><?=$bvalue['Synopsis']?></td>
+                    <td><div class="synopsis"><?=$bvalue['Synopsis']?></div></td>
                     <td><?=$bvalue['Auteur']?></td>
                     <td><?=$bvalue['Catégorie']?></td>
                     <td><a href="edit.php?id=<?=$bvalue['id']?>">Modifier</a></td>

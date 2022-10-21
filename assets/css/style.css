@@ -8,6 +8,7 @@
     border-collapse: separate;
     border-spacing: 0.2em;
     width: 75%;
+    text-align: center;
 }
 .bibl_table th, td, tr{
     padding: 0.5em;
@@ -49,4 +50,8 @@ body{
 }
 input, select, textarea {
     background: none;
+}
+.synopsis {
+    max-height: 2.5em;
+    overflow: scroll;
 }
