@@ -1,0 +1,52 @@
+.bibl_section{
+    color:black;
+    display: flex;
+    justify-content: center;
+    margin: 3em 0;
+}
+.bibl_table{
+    border-collapse: separate;
+    border-spacing: 0.2em;
+    width: 75%;
+}
+.bibl_table th, td, tr{
+    padding: 0.5em;
+    border: black 3px solid;
+    border-radius: 2px;
+}
+.bibl_table th{
+    font-weight: bold;
+    font-size: 1.2em;
+    color: black(233, 233, 68);
+}
+.main_title {
+    text-align: center;
+    font-size: 2em;
+}
+.bibl_table td{
+    overflow: hidden;
+    max-width: 50ch;
+}
+.deleteButton, a{
+    text-decoration: none;
+    color: black;
+    background-color: rgb(251, 191, 94);
+    padding: 0.3em;
+    border-radius: 4px;
+    border: none;
+}
+.addBook {
+    text-align: center;
+    width: 6em;
+    position: fixed;
+    right:0;
+    top:0;
+}
+body{
+    background-image: url('../img/books.jpg');
+    background-position: center;
+    background-size: cover;
+}
+input, select, textarea {
+    background: none;
+}

@@ -1,0 +1,31 @@
+.edit_form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+section {
+    display: flex;
+    justify-content: center;
+}
+.main_title {
+    text-align: center;
+    font-size: 2em;
+}
+.edit_form textarea{
+    height: 10ch;
+}
+.edit_form label {
+    margin-top: 1em;
+}
+.retour {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.disabled{
+    display: none;
+}
+.submitButton {
+    margin-top: 1em;
+}
